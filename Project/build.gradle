@@ -1,0 +1,36 @@
+plugins {
+  id 'com.github.johnrengelman.shadow' version '1.2.3'
+}
+
+apply plugin: 'java'
+apply plugin: 'application'
+mainClassName = "main.FinalProject"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.apache.hadoop:hadoop-client:2.7.2"
+   // https://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/weka-stable
+	compile "nz.ac.waikato.cms.weka:weka-stable:3.8.0"
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir './'
+        }
+    }
+}
+
+jar {
+    manifest {
+        attributes(
+            'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+            'Main-Class': 'main.FinalProject'
+        )
+    }
+}
+
+
