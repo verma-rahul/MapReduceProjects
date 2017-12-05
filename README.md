@@ -1,2 +1,2 @@
 # MapReduceProjects
-Please find the ppt for the project explanation.
+Please find the pdf for the project explanation.
